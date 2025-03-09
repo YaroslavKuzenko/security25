@@ -42,4 +42,19 @@ public class ParcelController {
     public Parcel updateParcel(@RequestBody Parcel parcel) {
         return service.updateParcel(parcel);
     }
+
+    @GetMapping("/user")
+    public String helloUser() {
+        return "Hello User";
+    }
+
+    @GetMapping("/admin")
+    public String helloAdmin() {
+        return "Hello Admin";
+    }
+
+    @GetMapping("/unknown")
+    public String helloUnknown() {
+        return "Hello Unknown";
+    }
 }

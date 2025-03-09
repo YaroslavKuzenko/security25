@@ -1,0 +1,48 @@
+### GET all parcels
+GET http://localhost:8080/api/v1/parcels
+###
+
+### GET parcel by id
+GET http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+###
+
+### DELETE parcel by id
+DELETE http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+###
+
+### POST create parcel
+POST http://localhost:8080/api/v1/parcels
+Content-Type: application/json
+
+{
+  "number": "20400345678914",
+  "description": "3 cups",
+  "weight": 1.2,
+  "sender_phone": "0998765634"
+}
+###
+
+### PUT update parcel
+PUT http://localhost:8080/api/v1/parcels
+Content-Type: application/json
+
+{
+  "id": "67cdd598e2af2e37e6000ecc",
+  "number": "20400345678914",
+  "description": "3 cups",
+  "weight": 4.2,
+  "sender_phone": "0998765634"
+}
+###
+
+### hello user
+GET http://localhost:8080/api/v1/parcels/user
+###
+
+### hello admin
+GET http://localhost:8080/api/v1/parcels/admin
+###
+
+### hello unknown
+GET http://localhost:8080/api/v1/parcels/unknown
+###
