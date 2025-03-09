@@ -27,7 +27,7 @@ public class ParcelService {
         parcels.add(new Parcel("20450324563412", "socks", 1.6, "0969554554"));
         parcels.add(new Parcel("20450324569349", "pillow", 1.2, "0969554567"));
         parcels.add(new Parcel("20450324560987", "coat", 12.3, "0969573453"));
-        repository.saveAll(parcels);
+//        repository.saveAll(parcels);
     }
 
     public List<Parcel> getAllParcels() {
