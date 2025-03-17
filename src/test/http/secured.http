@@ -1,17 +1,26 @@
 ### GET all parcels
 GET http://localhost:8080/api/v1/parcels
+Authorization: Basic admin admin
+Accept: application/json
 ###
 
 ### GET parcel by id
 GET http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+Authorization: Basic admin admin
+Accept: application/json
 ###
 
 ### DELETE parcel by id
-DELETE http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+DELETE http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000eca
+Authorization: Basic admin admin
+Accept: application/json
+Content-Type: application/json
 ###
 
 ### POST create parcel
 POST http://localhost:8080/api/v1/parcels
+Authorization: Basic admin admin
+Accept: application/json
 Content-Type: application/json
 
 {
@@ -25,6 +34,8 @@ Content-Type: application/json
 ### PUT update parcel
 PUT http://localhost:8080/api/v1/parcels
 Content-Type: application/json
+Authorization: Basic admin admin
+Accept: application/json
 
 {
   "id": "67cdd598e2af2e37e6000ecc",
@@ -37,13 +48,18 @@ Content-Type: application/json
 
 ### hello user
 GET http://localhost:8080/api/v1/parcels/user
+Authorization: Basic admin admin
+Accept: application/json
 ###
 
 ### hello admin
 GET http://localhost:8080/api/v1/parcels/admin
+Authorization: Basic admin admin
+Accept: application/json
 ###
 
 ### hello unknown
 GET http://localhost:8080/api/v1/parcels/unknown
+Authorization: Basic admin admin
+Accept: application/json
 ###
-
