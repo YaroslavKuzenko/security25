@@ -1,0 +1,72 @@
+### 1. USER role - Get all parcels
+GET http://localhost:8080/api/v1/parcels
+Authorization: Basic dXNlcjp1c2Vy
+
+### 2. USER role - Access user endpoint
+GET http://localhost:8080/api/v1/parcels/user
+Authorization: Basic dXNlcjp1c2Vy
+
+### 3. USER role - Try to create parcel (should fail)
+POST http://localhost:8080/api/v1/parcels
+Authorization: Basic dXNlcjp1c2Vy
+Content-Type: application/json
+
+{
+  "number": "20400345678914",
+  "description": "Test parcel",
+  "weight": 1.2,
+  "sender_phone": "0998765634"
+}
+
+### 4. ADMIN role - Create new parcel
+POST http://localhost:8080/api/v1/parcels
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+  "number": "20400345678914",
+  "description": "Admin's parcel",
+  "weight": 2.5,
+  "sender_phone": "0998765634"
+}
+
+### 5. ADMIN role - Update parcel
+PUT http://localhost:8080/api/v1/parcels
+Authorization: Basic YWRtaW46YWRtaW4=
+Content-Type: application/json
+
+{
+  "id": "67cdd598e2af2e37e6000ecc",
+  "number": "20400345678914",
+  "description": "Updated by admin",
+  "weight": 3.0,
+  "sender_phone": "0998765634"
+}
+
+### 6. ADMIN role - Try to delete parcel (should fail)
+DELETE http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+Authorization: Basic YWRtaW46YWRtaW4=
+
+### 7. SUPERADMIN role - Delete parcel
+DELETE http://localhost:8080/api/v1/parcels/67cdd598e2af2e37e6000ecc
+Authorization: Basic c3VwZXJhZG1pbjpzdXBlcmFkbWlu
+
+### 8. SUPERADMIN role - Create parcel
+POST http://localhost:8080/api/v1/parcels
+Authorization: Basic c3VwZXJhZG1pbjpzdXBlcmFkbWlu
+Content-Type: application/json
+
+{
+  "number": "20400345678914",
+  "description": "Superadmin's parcel",
+  "weight": 5.0,
+  "sender_phone": "0998765634"
+}
+
+### 9. USER role - Try to access admin endpoint (should fail)
+GET http://localhost:8080/api/v1/parcels/admin
+Authorization: Basic dXNlcjp1c2Vy
+
+### 10. ADMIN role - Access admin endpoint
+GET http://localhost:8080/api/v1/parcels/admin
+Authorization: Basic YWRtaW46YWRtaW4=

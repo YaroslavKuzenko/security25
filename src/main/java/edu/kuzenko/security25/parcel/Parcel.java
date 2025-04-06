@@ -10,6 +10,8 @@ package edu.kuzenko.security25.parcel;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 
+import java.time.LocalDateTime;
+
 @Data
 @Getter
 @Setter
