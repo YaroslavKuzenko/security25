@@ -44,12 +44,6 @@ public class SecurityConfig {
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/index.html").permitAll()
-                                .requestMatchers("/api/v1/parcels/admin").hasRole("ADMIN")
-                                .requestMatchers("/api/v1/parcels/user").hasRole("USER")
-                                .requestMatchers(HttpMethod.GET, "/api/v1/parcels/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                                .requestMatchers(HttpMethod.POST, "/api/v1/parcels").hasAnyRole("ADMIN", "SUPERADMIN")
-                                .requestMatchers(HttpMethod.PUT, "/api/v1/parcels").hasAnyRole("ADMIN", "SUPERADMIN")
-                                .requestMatchers(HttpMethod.DELETE, "/api/v1/parcels/**").hasRole("SUPERADMIN")
                                 .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults());
         return http.build();
