@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Parcel {
+public class Parcel extends AuditMetaData {
     @Id
     private String id;
     private String number;
