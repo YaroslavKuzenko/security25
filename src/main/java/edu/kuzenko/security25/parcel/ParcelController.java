@@ -19,43 +19,43 @@ import java.util.List;
 public class ParcelController {
     private final ParcelService service;
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping
     public List<Parcel> getParcels() {
         return service.getAllParcels();
     }
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping("/{parcelId}")
     public Parcel getParcelById(@PathVariable String parcelId) {
         return service.getParcelById(parcelId);
     }
 
-    @PreAuthorize("hasRole('SUPERADMIN')")
+    @PreAuthorize("hasAuthority('SUPERADMIN')")
     @DeleteMapping("/{parcelId}")
     public void deleteParcelById(@PathVariable String parcelId) {
         service.deleteParcelById(parcelId);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPERADMIN')")
     @PostMapping
     public Parcel createParcel(@RequestBody Parcel parcel) {
         return service.createParcel(parcel);
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPERADMIN')")
     @PutMapping
     public Parcel updateParcel(@RequestBody Parcel parcel) {
         return service.updateParcel(parcel);
     }
 
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('USER', 'ADMIN', 'SUPERADMIN')")
     @GetMapping("/user")
     public String helloUser() {
         return "Hello User";
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN', 'SUPERADMIN')")
+    @PreAuthorize("hasAnyAuthority('ADMIN', 'SUPERADMIN')")
     @GetMapping("/admin")
     public String helloAdmin() {
         return "Hello Admin";
